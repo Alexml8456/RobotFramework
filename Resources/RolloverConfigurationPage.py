@@ -16,7 +16,10 @@ selectors = {
     "nextPeriod": "model=item.nextPeriod",
     "midDiff": "css=span[bo-animate-on-change-value=\"item.midPrice\"]",
     "midDiffToUse": "model=item.manMidPrice",
-    "enableScheduler": "model=item.enable"
+    "enableScheduler": "model=item.enable",
+    "simulateNowButton": "css=div[ng-click=\"userCtrl.hasTradingConfigPermissions && ctrl.simulation()\"]",
+    "simulationMessage": "binding=alertCtrl.alert.message",
+    "playButton": "css=label[uib-btn-radio=\"true\"]"
 }
 
 
@@ -70,3 +73,17 @@ class RolloverConfigurationPage():
 
     def scheduler_should_be_enabled(self):
         self.exLib.ex_selenium2library().element_should_be_enabled(selectors["enableScheduler"])
+
+    def select_all_schedulers(self):
+        self.exLib.ex_selenium2library().click_element(selectors["selectAll"])
+
+    def click_simulate_now_button(self):
+        self.exLib.ex_selenium2library().click_element(
+            self.utils.find_element_in_element(selectors["toolBar"], selectors["simulateNowButton"]))
+
+    def simulation_message_should_be(self, message, timeout=20):
+        self.exLib.ex_selenium2library().wait_until_element_contains(selectors["simulationMessage"], message,
+                                                                     timeout=timeout)
+
+    def radio_buttons_should_be_visible(self):
+        self.utils.wait_until_elements_is_visible(selectors["playButton"])

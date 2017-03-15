@@ -2,6 +2,7 @@ from Resources.SelectWrapper import SelectWrapper
 from Resources.ExLibraries import ExLibraries
 from Resources.Util import Utils
 from CalendarDialog import CalendarDialog
+from Resources.RolloverConfigurationPage import RolloverConfigurationPage
 
 selectors = {
     "newSchedulerDialog": "css=div[ng-include=\"modal.content\"]",
@@ -23,6 +24,7 @@ class NewSchedulerDialog(object):
         self.utils = Utils()
         self.exLib = ExLibraries()
         self.calendar = CalendarDialog()
+        self.rolloverConfigurationPage = RolloverConfigurationPage()
 
     def input_symbol(self, symbol):
         self.exLib.ex_selenium2library().input_text(selectors["symbolField"], symbol)
@@ -35,7 +37,8 @@ class NewSchedulerDialog(object):
 
     def click_calendar_button(self):
         self.exLib.ex_selenium2library().click_element(
-            self.utils.find_element_in_element(selectors["newSchedulerDialog"], self.calendar.get_selectors()["calendarButton"]))
+            self.utils.find_element_in_element(selectors["newSchedulerDialog"],
+                                               self.calendar.get_selectors()["calendarButton"]))
 
     def check_current_period(self, iteration_count, symbol):
         for i in range(int(iteration_count)):
@@ -59,3 +62,22 @@ class NewSchedulerDialog(object):
 
     def enable_auto_run(self):
         self.exLib.ex_selenium2library().click_element(selectors["disabledEnabled"])
+
+    def create_new_scheduler(self, symbol, next_period):
+        self.rolloverConfigurationPage.click_new_scheduler_button()
+        self.click_calendar_button()
+        self.calendar.click_today_button()
+        self.input_symbol(symbol)
+        self.check_current_period(10, symbol)
+        self.input_next_period(next_period)
+        self.click_save_button()
+
+    def create_new_scheduler_with_mid_diff(self, symbol, next_period, mid_diff):
+        self.rolloverConfigurationPage.click_new_scheduler_button()
+        self.click_calendar_button()
+        self.calendar.click_today_button()
+        self.input_symbol(symbol)
+        self.check_current_period(10, symbol)
+        self.input_next_period(next_period)
+        self.input_mid_diff(mid_diff)
+        self.click_save_button()

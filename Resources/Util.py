@@ -2,6 +2,8 @@ from Resources.ExLibraries import ExLibraries
 import time
 import calendar
 from datetime import datetime
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.expected_conditions import visibility_of
 
 
 class Utils(object):
@@ -31,3 +33,18 @@ class Utils(object):
 
     def get_current_year(self):
         return datetime.now().year
+
+    def wait_until_elements_is_visible(self, locator, timeout=None, error=None):
+        # pylint: disable=no-member
+        timeout = self.exLib.ex_selenium2library()._get_timeout_value(timeout,
+                                                                      self.exLib.ex_selenium2library()._implicit_wait_in_secs)
+        if not error:
+            error = 'Element \'%s\' was not visible in %s' % \
+                    (locator, self.exLib.ex_selenium2library()._format_timeout(timeout))
+
+        elements = self.exLib.ex_selenium2library()._element_find(locator, False, True)
+        for element in elements:
+            if element is None:
+                raise AssertionError("Element '%s' not found." % locator)
+            WebDriverWait(None, timeout, self.exLib.ex_selenium2library()._inputs['poll_frequency']). \
+                until(visibility_of(element), error)
