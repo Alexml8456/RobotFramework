@@ -7,15 +7,15 @@ Library  Resources/RolloverConfigurationPage.py
 Library  Resources/NewSchedulerDialog.py
 Library  Resources/CalendarDialog.py
 Default Tags  Functional
-Suite Setup  Run keywords
-...          Begin Web Test  AND
-...          LoginPage.login  ${USERNAME}  ${PASSWORD}  AND
-...          RolloverConfigurationPage.delete_all_schedulers  AND
-...          NewSchedulerDialog.create_new_scheduler_with_mid_diff  Swiss20  /SIZ7  3.956
-Suite Teardown  Run keywords
-...             RolloverConfigurationPage.delete_all_schedulers  AND
-...             TopMenuPage.click_logout_link  AND
-...             End Web Test
+Test Setup  Run keywords
+...         Begin Web Test  AND
+...         LoginPage.login  ${USERNAME}  ${PASSWORD}  AND
+...         RolloverConfigurationPage.delete_all_schedulers  AND
+...         NewSchedulerDialog.create_new_scheduler_with_mid_diff  Swiss20  /SIZ7  3.957
+Test Teardown  Run keywords
+...            RolloverConfigurationPage.delete_all_schedulers  AND
+...            TopMenuPage.click_logout_link  AND
+...            End Web Test
 
 *** Test Cases ***
 Simulate scheduler
