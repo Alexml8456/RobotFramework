@@ -1,4 +1,4 @@
-from Resources.ExLibraries import ExLibraries
+from Resources.BackOffice.ExLibraries import ExLibraries
 
 selectors = {
     "userName": "model=authCtrl.credentials.username",

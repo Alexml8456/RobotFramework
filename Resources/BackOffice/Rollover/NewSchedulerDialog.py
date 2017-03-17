@@ -1,8 +1,8 @@
-from Resources.SelectWrapper import SelectWrapper
-from Resources.ExLibraries import ExLibraries
-from Resources.Util import Utils
-from CalendarDialog import CalendarDialog
-from Resources.RolloverConfigurationPage import RolloverConfigurationPage
+from Resources.BackOffice.SelectWrapper import SelectWrapper
+from Resources.BackOffice.ExLibraries import ExLibraries
+from Resources.BackOffice.Util import Utils
+from Resources.BackOffice.CalendarDialog import CalendarDialog
+from Resources.BackOffice.Rollover.RolloverConfigurationPage import RolloverConfigurationPage
 
 selectors = {
     "newSchedulerDialog": "css=div[ng-include=\"modal.content\"]",

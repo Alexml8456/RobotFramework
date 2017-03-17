@@ -1,10 +1,10 @@
-from Resources.Util import Utils
-from Resources.ExLibraries import ExLibraries
+from Resources.BackOffice.Util import Utils
+from Resources.BackOffice.ExLibraries import ExLibraries
 
 selectors = {
     "symbol": "binding=item.symbol",
     "toolBar": "css=div[role=\"toolbar\"]",
-    "newScheduler": "css=span[ng-click=\"userCtrl.hasTradingConfigPermissions && editCtrl.new()\"]",
+    "newSchedulerButton": "css=span[ng-click=\"userCtrl.hasTradingConfigPermissions && editCtrl.new()\"]",
     "report": "css='a[href=\"/#/rollover-scheduler-reports\"]'",
     "oldSchedulers": "css=label[for=\"old\"]",
     "clearFilters": "css=div[ng-click=\"ctrl.removeAllFilters()\"]",
@@ -33,7 +33,7 @@ class RolloverConfigurationPage():
 
     def click_new_scheduler_button(self):
         self.exLib.ex_selenium2library().click_element(
-            self.utils.find_element_in_element(selectors["toolBar"], selectors["newScheduler"]))
+            self.utils.find_element_in_element(selectors["toolBar"], selectors["newSchedulerButton"]))
 
     def delete_all_schedulers(self):
         self.exLib.ex_selenium2library().click_element(selectors["oldSchedulers"])

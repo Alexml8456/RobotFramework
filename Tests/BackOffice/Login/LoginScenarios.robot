@@ -1,8 +1,8 @@
 *** Settings ***
 Documentation  Login Scenarios
-Library  Resources/LoginPage.py
-Resource  Resources/Common.robot
-Library  Resources/TopMenuPage.py
+Library  Resources/BackOffice/LoginPage.py
+Resource  Resources/BackOffice/Common.robot
+Library  Resources/BackOffice/TopMenuPage.py
 Default Tags  Functional
 Suite Setup  Begin Web Test
 Suite Teardown  End Web Test

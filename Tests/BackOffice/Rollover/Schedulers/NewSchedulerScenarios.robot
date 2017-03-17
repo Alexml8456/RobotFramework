@@ -1,11 +1,11 @@
 *** Settings ***
 Documentation  CFD Rollover Scenarios
-Resource  Resources/Common.robot
-Library  Resources/LoginPage.py
-Library  Resources/TopMenuPage.py
-Library  Resources/RolloverConfigurationPage.py
-Library  Resources/NewSchedulerDialog.py
-Library  Resources/CalendarDialog.py
+Resource  Resources/BackOffice/Common.robot
+Library  Resources/BackOffice/LoginPage.py
+Library  Resources/BackOffice/TopMenuPage.py
+Library  Resources/BackOffice/Rollover/RolloverConfigurationPage.py
+Library  Resources/BackOffice/Rollover/NewSchedulerDialog.py
+Library  Resources/BackOffice/CalendarDialog.py
 Default Tags  Functional
 Suite Setup  Run keywords
 ...          Begin Web Test  AND
