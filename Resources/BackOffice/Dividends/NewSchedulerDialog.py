@@ -1,6 +1,6 @@
 from Resources.BackOffice.SelectWrapper import SelectWrapper
 from Resources.BackOffice.ExLibraries import ExLibraries
-from Resources.BackOffice.Util import Utils
+from Resources.BackOffice.Utils import Utils
 from Resources.BackOffice.CalendarDialog import CalendarDialog
 
 selectors = {

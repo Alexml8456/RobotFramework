@@ -1,4 +1,4 @@
-from Resources.BackOffice.Util import Utils
+from Resources.BackOffice.Utils import Utils
 from Resources.BackOffice.ExLibraries import ExLibraries
 
 selectors = {
@@ -28,7 +28,7 @@ class DividendsConfigurationPage():
 
     def scheduler_should_have_current_date(self):
         self.exLib.ex_selenium2library().element_attribute_should_contain(selectors["symbolDate"] + "@value",
-                                                                          self.utils.get_current_date())
+                                                                          self.utils.get_current_date("%d/%m/%Y"))
 
     def should_contain_scheduler(self, symbol):
         self.exLib.ex_selenium2library().element_text_should_be(selectors["symbol"], symbol)

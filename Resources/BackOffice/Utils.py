@@ -19,8 +19,8 @@ class Utils(object):
     def find_element_in_element(self, parent_element, child_element):
         return parent_element + " " + child_element[child_element.index('=') + 1:]
 
-    def get_current_date(self):
-        return time.strftime("%d/%m/%Y")
+    def get_current_date(self, date_format):
+        return time.strftime(date_format)
 
     def add_zero(self, month):
         month_index = list(calendar.month_name).index(month)

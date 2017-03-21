@@ -1,5 +1,5 @@
 from Resources.BackOffice.ExLibraries import ExLibraries
-from Resources.BackOffice.Util import Utils
+from Resources.BackOffice.Utils import Utils
 
 selectors = {
     "sideBar": "css=md-sidenav[md-component-id=\"sidebar\"]",

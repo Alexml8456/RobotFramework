@@ -1,4 +1,4 @@
-from Resources.BackOffice.Util import Utils
+from Resources.BackOffice.Utils import Utils
 from Resources.BackOffice.ExLibraries import ExLibraries
 
 selectors = {
@@ -19,7 +19,8 @@ selectors = {
     "enableScheduler": "model=item.enable",
     "simulateNowButton": "css=div[ng-click=\"userCtrl.hasTradingConfigPermissions && ctrl.simulation()\"]",
     "simulationMessage": "binding=alertCtrl.alert.message",
-    "playButton": "css=label[uib-btn-radio=\"true\"]"
+    "playButton": "css=label[uib-btn-radio=\"true\"]",
+    "alertMessage": "binding=alertCtrl.alert.message"
 }
 
 
@@ -54,7 +55,7 @@ class RolloverConfigurationPage():
 
     def scheduler_should_have_current_date(self):
         self.exLib.ex_selenium2library().element_attribute_should_contain(selectors["symbolDate"] + "@value",
-                                                                          self.utils.get_current_date())
+                                                                          self.utils.get_current_date("%d/%m/%Y"))
 
     def scheduler_should_have_date(self, month, day):
         self.exLib.ex_selenium2library().element_attribute_should_contain(selectors["symbolDate"] + "@value",
@@ -87,3 +88,6 @@ class RolloverConfigurationPage():
 
     def radio_buttons_should_be_visible(self):
         self.utils.wait_until_elements_is_visible(selectors["playButton"])
+
+    def alert_message_should_contain(self, message):
+        self.exLib.ex_selenium2library().wait_until_element_contains(selectors["alertMessage"], message)

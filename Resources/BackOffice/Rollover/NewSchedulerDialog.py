@@ -1,6 +1,6 @@
 from Resources.BackOffice.SelectWrapper import SelectWrapper
 from Resources.BackOffice.ExLibraries import ExLibraries
-from Resources.BackOffice.Util import Utils
+from Resources.BackOffice.Utils import Utils
 from Resources.BackOffice.CalendarDialog import CalendarDialog
 from Resources.BackOffice.Rollover.RolloverConfigurationPage import RolloverConfigurationPage
 
@@ -14,7 +14,8 @@ selectors = {
     "nextPeriodDropDownMenu": "css=div[ng-class=\"{'has-error':ctrl.isValid('nextPeriod')}\"] .dropdown-menu",
     "middiff": "model=ctrl.getItem().copyItem.manMidPrice",
     "disabledEnabled": "css=label[for=\"enable\"]",
-    "saveButton": "css=button[ng-click=\"ctrl.save()\"]"
+    "saveButton": "css=button[ng-click=\"ctrl.save()\"]",
+    "alertMessage": "binding=alertCtrl.alert.message"
 }
 
 
@@ -81,3 +82,16 @@ class NewSchedulerDialog(object):
         self.input_next_period(next_period)
         self.input_mid_diff(mid_diff)
         self.click_save_button()
+
+    def create_new_scheduler_with_date(self, symbol, next_period, month, day):
+        self.rolloverConfigurationPage.click_new_scheduler_button()
+        self.click_calendar_button()
+        self.calendar.date_selector(month, day)
+        self.input_symbol(symbol)
+        self.check_current_period(10, symbol)
+        self.input_next_period(next_period)
+        self.click_save_button()
+
+    def alert_message_should_contain(self, message):
+        elements = self.exLib.ex_selenium2library().get_webelements(selectors["alertMessage"])
+        self.exLib.ex_selenium2library().wait_until_element_contains(elements[1], message)
