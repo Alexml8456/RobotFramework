@@ -27,17 +27,17 @@ ${period}  /CLZ8
 Validation schedulers with identical date and next period
     NewSchedulerDialog.create_new_scheduler  ${symbol}  ${period}
     NewSchedulerDialog.alert_message_should_contain  Scheduler with instrument ${symbol} and on ${CURRENT_DATE} already exists. Scheduler with periods /CLZ7 : ${period} already exists.
-    NewSchedulerDialog.click_cancel_button
+    [Teardown]  NewSchedulerDialog.click_cancel_button
 
 Validation schedulers with identical date
     NewSchedulerDialog.create_new_scheduler  ${symbol}  /CLF6
     NewSchedulerDialog.alert_message_should_contain  Scheduler with instrument ${symbol} and on ${CURRENT_DATE} already exists.
-    NewSchedulerDialog.click_cancel_button
+    [Teardown]  NewSchedulerDialog.click_cancel_button
 
 Validation schedulers with identical next period
     NewSchedulerDialog.create_new_scheduler_with_date  ${symbol}  ${period}  May  20
     NewSchedulerDialog.alert_message_should_contain  Scheduler with periods /CLZ7 : ${period} already exists.
-    NewSchedulerDialog.click_cancel_button
+    [Teardown]  NewSchedulerDialog.click_cancel_button
 
 Validation for simulate schedulers
     NewSchedulerDialog.create_new_scheduler_with_date  ${symbol}  /CLF6  June  15

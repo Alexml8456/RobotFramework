@@ -20,7 +20,8 @@ selectors = {
     "simulateNowButton": "css=div[ng-click=\"userCtrl.hasTradingConfigPermissions && ctrl.simulation()\"]",
     "simulationMessage": "binding=alertCtrl.alert.message",
     "playButton": "css=label[uib-btn-radio=\"true\"]",
-    "alertMessage": "binding=alertCtrl.alert.message"
+    "alertMessage": "binding=alertCtrl.alert.message",
+    "cloneButton": "css=span[ng-click=\"userCtrl.hasTradingConfigPermissions && editCtrl.cloneItem(item)\"]"
 }
 
 
@@ -91,3 +92,6 @@ class RolloverConfigurationPage():
 
     def alert_message_should_contain(self, message):
         self.exLib.ex_selenium2library().wait_until_element_contains(selectors["alertMessage"], message)
+
+    def click_clone_button(self):
+        self.exLib.ex_selenium2library().click_element(selectors["cloneButton"])
