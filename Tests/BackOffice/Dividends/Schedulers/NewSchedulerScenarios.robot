@@ -7,6 +7,7 @@ Library  Resources/BackOffice/Dividends/DividendsConfigurationPage.py
 Library  Resources/BackOffice/Dividends/NewSchedulerDialog.py
 Library  Resources/BackOffice/CalendarDialog.py
 Library  Resources/BackOffice/SideBarNavigation.py
+
 Default Tags  Functional
 Suite Setup  Run keywords
 ...          Begin Web Test  AND

@@ -95,3 +95,6 @@ class RolloverConfigurationPage():
 
     def click_clone_button(self):
         self.exLib.ex_selenium2library().click_element(selectors["cloneButton"])
+
+    def should_contain_symbols_amount(self, amount):
+        self.utils.number_of_items_should_be(selectors["symbol"], amount)

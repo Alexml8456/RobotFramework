@@ -6,6 +6,7 @@ Library  Resources/BackOffice/TopMenuPage.py
 Library  Resources/BackOffice/Rollover/RolloverConfigurationPage.py
 Library  Resources/BackOffice/Rollover/NewSchedulerDialog.py
 Library  Resources/BackOffice/CalendarDialog.py
+
 Default Tags  Functional
 Test Setup  Run keywords
 ...         Begin Web Test  AND
@@ -27,6 +28,7 @@ Clone scheduler
     NewSchedulerDialog.input_mid_diff  9.951
     NewSchedulerDialog.click_save_button
 
+    RolloverConfigurationPage.should_contain_symbols_amount  2
     RolloverConfigurationPage.should_contain_scheduler  GOLD
     RolloverConfigurationPage.scheduler_should_have_current_date
     RolloverConfigurationPage.scheduler_should_have_next_period  /GCF4

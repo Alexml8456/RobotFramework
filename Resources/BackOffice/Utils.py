@@ -1,4 +1,5 @@
 from Resources.BackOffice.ExLibraries import ExLibraries
+from robot.libraries.BuiltIn import BuiltIn
 import time
 import calendar
 from datetime import datetime
@@ -7,6 +8,7 @@ from datetime import datetime
 class Utils(object):
     def __init__(self):
         self.exLib = ExLibraries()
+        self.builtIn = BuiltIn()
 
     def get_text_list(self, locator):
         texts = []
@@ -36,3 +38,7 @@ class Utils(object):
         elements = self.exLib.ex_selenium2library().get_webelements(locator)
         for element in elements:
             self.exLib.ex_selenium2library().wait_until_element_is_visible(element)
+
+    def number_of_items_should_be(self, locator, length):
+        elements = self.exLib.ex_selenium2library().get_webelements(locator)
+        self.builtIn.length_should_be(elements, length)
