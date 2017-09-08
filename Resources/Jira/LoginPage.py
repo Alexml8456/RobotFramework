@@ -4,7 +4,7 @@ selectors = {
     "userName": "id=login-form-username",
     "password": "id=login-form-password",
     "logInButton": "id=login",
-    "frame": "gadget-0"
+    "frame": "id=gadget-0"
 }
 
 

@@ -9,6 +9,7 @@ Suite Teardown  End Web Test
 
 *** Test Cases ***
 Login With Valid Credentials
+    select frame  id=gadget-0
     LoginPage.input_username   ${USERNAME}
     LoginPage.input_password   ${PASSWORD}
     LoginPage.click_login_button
