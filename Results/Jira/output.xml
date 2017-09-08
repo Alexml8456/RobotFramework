@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20170908 17:39:38.862" generator="Robot 3.0.1 (Python 2.7.10 on linux2)">
+<suite source="/home/alexml/IdeaProjects/RobotFramework/Tests/Jira" id="s1" name="Jira">
+<suite source="/home/alexml/IdeaProjects/RobotFramework/Tests/Jira/Login" id="s1-s1" name="Login">
+<suite source="/home/alexml/IdeaProjects/RobotFramework/Tests/Jira/Login/LoginScenarios.robot" id="s1-s1-s1" name="LoginScenarios">
+<kw type="setup" name="Begin Web Test" library="Common">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${START_URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20170908 17:39:38.978" level="INFO">Opening browser 'chrome' to base url 'https://jira.internal-services.com'</msg>
+<status status="PASS" endtime="20170908 17:39:42.775" starttime="20170908 17:39:38.978"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20170908 17:39:42.929" starttime="20170908 17:39:42.775"></status>
+</kw>
+<status status="PASS" endtime="20170908 17:39:42.929" starttime="20170908 17:39:38.977"></status>
+</kw>
+<test id="s1-s1-s1-t1" name="Login With Valid Credentials">
+<kw name="Input Username" library="LoginPage">
+<arguments>
+<arg>${USERNAME}</arg>
+</arguments>
+<msg timestamp="20170908 17:39:42.930" level="INFO">Typing text 'amelnychuk' into text field 'id=login-form-username'</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20170908 17:39:43.112" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20170908 17:39:43.113" starttime="20170908 17:39:42.946"></status>
+</kw>
+<msg timestamp="20170908 17:39:43.114" level="FAIL">ValueError: Element locator 'id=login-form-username' did not match any elements.</msg>
+<status status="FAIL" endtime="20170908 17:39:43.114" starttime="20170908 17:39:42.930"></status>
+</kw>
+<tags>
+<tag>Functional</tag>
+</tags>
+<status status="FAIL" endtime="20170908 17:39:43.114" critical="yes" starttime="20170908 17:39:42.929">ValueError: Element locator 'id=login-form-username' did not match any elements.</status>
+</test>
+<kw type="teardown" name="End Web Test" library="Common">
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20170908 17:39:43.185" starttime="20170908 17:39:43.116"></status>
+</kw>
+<status status="PASS" endtime="20170908 17:39:43.185" starttime="20170908 17:39:43.116"></status>
+</kw>
+<doc>Login Scenarios</doc>
+<status status="FAIL" endtime="20170908 17:39:43.185" starttime="20170908 17:39:38.883"></status>
+</suite>
+<status status="FAIL" endtime="20170908 17:39:43.197" starttime="20170908 17:39:38.881"></status>
+</suite>
+<status status="FAIL" endtime="20170908 17:39:43.199" starttime="20170908 17:39:38.863"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="1" pass="0">Functional</stat>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="Jira" pass="0">Jira</stat>
+<stat fail="1" id="s1-s1" name="Login" pass="0">Jira.Login</stat>
+<stat fail="1" id="s1-s1-s1" name="LoginScenarios" pass="0">Jira.Login.LoginScenarios</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
