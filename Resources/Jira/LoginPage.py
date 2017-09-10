@@ -25,6 +25,7 @@ class LoginPage(object):
         self.exLib.selenium2library().element_should_contain(selectors["dangerAlert"], text)
 
     def login(self, user, password):
+        self.exLib.selenium2library().select_frame(selectors["frame"])
         self.input_username(user)
         self.input_password(password)
         self.click_login_button()

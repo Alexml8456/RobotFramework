@@ -4,8 +4,8 @@ Library  Selenium2Library
 *** Variables ***
 ${BROWSER}  chrome
 ${START_URL}  https://jira.internal-services.com
-${USERNAME}  amelnychuk
-${PASSWORD}  alexanderm$#2
+${USERNAME}
+${PASSWORD}
 
 *** Keywords ***
 Begin Web Test
