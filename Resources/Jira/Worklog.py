@@ -13,7 +13,7 @@ class Worklog(object):
         self.exLib = ExLibraries()
         self.utils = Utils()
 
-    def select_table_rows(self):
+    def fill_worklog(self):
         self.exLib.selenium2library().wait_until_element_is_visible(selectors["table"])
         elements = self.exLib.selenium2library()._element_find(selectors["tbody"], False, True)
         for index, element in enumerate(elements, start=1):

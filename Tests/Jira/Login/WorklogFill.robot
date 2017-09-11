@@ -9,8 +9,10 @@ Suite Setup  Begin Web Test
 Suite Teardown  End Web Test
 
 *** Test Cases ***
-Login With Valid Credentials
+Worklog filling
     LoginPage.login  ${USERNAME}  ${PASSWORD}
     Dashboard.click_user_options
     Dashboard.click_worklog
-    Worklog.select_table_rows
+    Worklog.fill_worklog
+    Dashboard.click_user_options
+    Dashboard.click_logout

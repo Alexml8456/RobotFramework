@@ -4,7 +4,8 @@ from Resources.Jira.Utils import Utils
 selectors = {
     "headerDetails": "id=user-options",
     "userContent": "id=user-options-content",
-    "worklog": "id=worklog"
+    "worklog": "id=worklog",
+    "logout": "id=log_out"
 }
 
 
@@ -20,3 +21,7 @@ class Dashboard(object):
     def click_worklog(self):
         self.exLib.selenium2library().click_element(
             self.utils.find_element_in_element(selectors["userContent"], 'find_element_by_id', selectors["worklog"]))
+
+    def click_logout(self):
+        self.exLib.selenium2library().click_element(
+            self.utils.find_element_in_element(selectors["userContent"], 'find_element_by_id', selectors["logout"]))
